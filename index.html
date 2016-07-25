@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+</head>
+<div ng-controller="TaskCtrl">
+    <div class="container">
+    	<h3>Simple Task Management App</h3><br/>
+    	<form>
+			<div class="form-group">
+				<label for="taskName">Enter Task</label>
+				<input ng-model="formTaskText" ng-model-instant type="text" class="form-control">
+			</div>
+			<button class="add-btn" ng-click="addTask()">Add Task</button>
+		</form>
+	    <br/>
+	    <div ng-show="tasks.length==0">No data found</div>
+	        <div ng-repeat="task in tasks">
+	          <input type="checkbox" ng-model="task.done"/>
+	          <span class="done-{{task.done}}">{{task.text}}</span>
+	        </div>
+	    </div>	
+    </div>
+</div>
+</html>
+
+<script src="js/angular.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src='js/task.js'></script>
